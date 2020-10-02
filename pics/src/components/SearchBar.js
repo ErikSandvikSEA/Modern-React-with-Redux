@@ -5,12 +5,6 @@ class SearchBar extends Component {
         term: ''
     }
 
-    onInputChange(e) {
-       this.setState({
-           term: e.target.value
-       })
-    }
-
     render() {
         return (
             <div
@@ -19,13 +13,17 @@ class SearchBar extends Component {
                 <form
                     className="ui form"
                 >
-                    <label>Image Search</label>
-                    <input 
+                    <div 
                         className='field'
-                        placeholder="Search for images"
-                        type='text' 
-                        onChange={this.onInputChange}
-                    />
+                    >
+                        <label>Image Search</label>
+                        <input 
+                            placeholder="Search for images"
+                            type='text' 
+                            onChange={e => this.setState({ term: e.target.value })}
+                            value={this.state.term}
+                        />
+                    </div>
                 </form>
             </div>
         )
