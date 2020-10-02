@@ -5,6 +5,14 @@ class SearchBar extends Component {
         term: ''
     }
 
+
+
+    onFormSubmit = (e) => {
+        e.preventDefault()
+
+        this.props.onSubmit(this.state.term)
+    }
+
     render() {
         return (
             <div
@@ -12,10 +20,9 @@ class SearchBar extends Component {
             >
                 <form
                     className="ui form"
+                    onSubmit={this.onFormSubmit}
                 >
-                    <div 
-                        className='field'
-                    >
+                    <div className='field'>
                         <label>Image Search</label>
                         <input 
                             placeholder="Search for images"
