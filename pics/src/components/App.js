@@ -7,14 +7,16 @@ import { SearchBar } from '../components'
 import '../styles/App.css'
 
 class App extends Component {
-    onSearchSubmit(term){
-        axios
+    async onSearchSubmit(term){
+        const response = await axios
             .get(`https://api.unsplash.com/search/photos`, {
                 params: { query: term },
                 headers: {
                     Authorization: `Client-ID NCOYwbvxs_HrYSjK95BNoMPS5EyxbMyRsACAXWmO6DY`
                 }
-            }) 
+            })
+        
+        console.log(response.data.results)
     }
 
 
