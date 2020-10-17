@@ -1,7 +1,7 @@
 //packages
 import React from 'react'
 
-//files
+// from files
 import { ImageCard } from '../components'
 import "../styles/ImageList.css"
 
