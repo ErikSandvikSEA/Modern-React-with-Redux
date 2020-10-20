@@ -2,7 +2,7 @@
 import React from 'react'
 
 // from files 
-import { Accordion } from './components'
+import { Accordion, Search } from './components'
 
 const items = [
     {
@@ -19,10 +19,13 @@ const items = [
     }
 ]
 
+let display = false
+
 function App() {
     return (
         <div>
-            <Accordion items={items}/>
+            <Search />
+            {display ? <Accordion items={items}/> : null}
         </div>
     )
 }
