@@ -6,15 +6,19 @@ import "../styles/VideoItem.css"
 
 export default function VideoItem(props) {
     const {
-        video
+        video,
+        onVideoSelect
     } = props
 
     return (
-        <div className="video__item item">
+        <div 
+            className="video__item item"
+            onClick={() => onVideoSelect(video)}
+        >
             <img 
                 className="ui image"
                 src={video.snippet.thumbnails.medium.url}
-                alt={`${video.snippet.title} thumbnail`}
+                alt={`${video.snippet.title} -- thumbnail`}
             />
             <div className="content">
                 <div className="header">

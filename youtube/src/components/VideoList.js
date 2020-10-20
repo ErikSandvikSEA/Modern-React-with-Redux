@@ -5,13 +5,14 @@ import React from 'react'
 import { VideoItem } from '../components'
 
 export default function VideoList (props) {
-    const { videos } = props
+    const { videos, onVideoSelect } = props
 
-    const renderedList = videos.map((video, idx) => {
+    const renderedList = videos.map((video) => {
         return (
             <VideoItem
-                key={idx}
+                key={video.id.videoId}
                 video={video}
+                onVideoSelect={onVideoSelect}
             />
         )
     })
