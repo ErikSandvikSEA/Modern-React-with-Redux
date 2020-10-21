@@ -7,12 +7,17 @@ function Dropdown(props) {
 	const ref = useRef()
 
 	useEffect(() => {
-		document.body.addEventListener('click', (e) => {
-            if(ref.current.contains(e.target)){
-                return
-            }
+		const onBodyClick = (e) => {
+			if (ref.current.contains(e.target)) {
+				return
+			}
 			setOpen(false)
-		})
+		}
+		document.body.addEventListener('click', onBodyClick)
+
+		return () => {
+			document.body.removeEventListener('click', onBodyClick)
+		}
 	}, [])
 
 	const renderedOptions = options.map((option) => {
@@ -29,8 +34,8 @@ function Dropdown(props) {
 				{option.label}
 			</div>
 		)
-    })
-    
+	})
+
 	return (
 		<div ref={ref} className="ui form">
 			<div className="field">
