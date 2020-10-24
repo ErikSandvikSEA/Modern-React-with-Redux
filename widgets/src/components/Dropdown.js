@@ -1,6 +1,9 @@
 //from packages
 import React, { useState, useEffect, useRef } from 'react'
 
+// from files 
+import "../styles/Dropdown.css"
+
 function Dropdown(props) {
 	const { options, selected, onSelectedChange } = props
 	const [open, setOpen] = useState(false)
@@ -30,6 +33,7 @@ function Dropdown(props) {
 				key={option.value}
 				className="item"
 				onClick={() => onSelectedChange(option)}
+				style={{color: option.value}}
 			>
 				{option.label}
 			</div>
@@ -39,7 +43,11 @@ function Dropdown(props) {
 	return (
 		<div ref={ref} className="ui form">
 			<div className="field">
-				<label className="label">{selected.label}</label>
+				<label className="label">
+					<h3 style={{color: selected.value}}>
+						{selected.label}
+					</h3>
+				</label>
 				<div
 					onClick={() => setOpen(!open)}
 					className={`ui selection dropdown ${
