@@ -1,11 +1,11 @@
 //from packages
 import React, { useState, useEffect, useRef } from 'react'
 
-// from files 
-import "../styles/Dropdown.css"
+// from files
+import '../styles/Dropdown.css'
 
 function Dropdown(props) {
-	const { options, selected, onSelectedChange } = props
+	const { options, selected, onSelectedChange, label } = props
 	const [open, setOpen] = useState(false)
 	const ref = useRef()
 
@@ -33,7 +33,7 @@ function Dropdown(props) {
 				key={option.value}
 				className="item"
 				onClick={() => onSelectedChange(option)}
-				style={{color: option.value}}
+				style={{ color: option.value }}
 			>
 				{option.label}
 			</div>
@@ -44,9 +44,7 @@ function Dropdown(props) {
 		<div ref={ref} className="ui form">
 			<div className="field">
 				<label className="label">
-					<h3 style={{color: selected.value}}>
-						{selected.label}
-					</h3>
+					<h3>{label}</h3>
 				</label>
 				<div
 					onClick={() => setOpen(!open)}
@@ -55,7 +53,7 @@ function Dropdown(props) {
 					}`}
 				>
 					<i className="dropdown icon"></i>
-					<div className="text">Select Color</div>
+					<div className="text">{selected.label}</div>
 					<div className={`menu  ${open ? 'visible transition' : ''}`}>
 						{renderedOptions}
 					</div>

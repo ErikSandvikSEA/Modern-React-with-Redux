@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 // from files
-import { Accordion, Search, Dropdown } from './components'
+import { Accordion, Search, Dropdown, Translate } from './components'
 
 const items = [
 	{
@@ -38,22 +38,19 @@ const options = [
 
 function App() {
 	const [selected, setSelected] = useState(options[0])
-	const [showDropdown, setShowDropdown] = useState(true)
 
 	return (
 		<div>
 			{display ? <Search /> : null}
 			{display ? <Accordion items={items} /> : null}
-			<button onClick={() => setShowDropdown(!showDropdown)}>
-				Toggle Dropdown
-			</button>
-			{showDropdown ? (
+			{display ? (
 				<Dropdown
 					selected={selected}
 					onSelectedChange={setSelected}
 					options={options}
 				/>
 			) : null}
+			<Translate />
 		</div>
 	)
 }
