@@ -20,7 +20,11 @@ const options = [
 	{
 		label: `Dutch`,
 		value: `nl`,
-	},
+    },
+    {
+        label: `Japanese`,
+        value: `ja`
+    }
 ]
 
 function Translate() {
