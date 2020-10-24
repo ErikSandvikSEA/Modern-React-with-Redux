@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 // from files
-import { Dropdown } from '../components'
+import { Dropdown, Convert } from '../components'
 
 const options = [
 	{
@@ -16,11 +16,11 @@ const options = [
 	{
 		label: `Hindi`,
 		value: `hi`,
-    },
-    {
-        label: `Dutch`,
-        value: `nl`
-    }
+	},
+	{
+		label: `Dutch`,
+		value: `nl`,
+	},
 ]
 
 function Translate() {
@@ -41,6 +41,9 @@ function Translate() {
 				onSelectedChange={setLanguage}
 				options={options}
 			/>
+			<hr />
+			<h3 className="ui header">Output</h3>
+			<Convert text={text} language={language} />
 		</div>
 	)
 }
