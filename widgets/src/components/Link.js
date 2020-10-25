@@ -4,6 +4,10 @@ function Link(props) {
     const { className, href, children } = props
     
     const clickHandler = e => {
+        if(e.metaKey || e.ctrlKey){
+            return
+        }
+
         e.preventDefault()
         window.history.pushState({}, ``, href)
 
