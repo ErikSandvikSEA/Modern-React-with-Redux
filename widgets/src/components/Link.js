@@ -5,7 +5,10 @@ function Link(props) {
     
     const clickHandler = e => {
         e.preventDefault()
-        
+        window.history.pushState({}, ``, href)
+
+        const navEvent = new PopStateEvent(`popstate`)
+        window.dispatchEvent(navEvent)
     }
 	return (
 		<a onClick={clickHandler} className={className} href={href}>
