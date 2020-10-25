@@ -2,7 +2,14 @@
 import React, { useState } from 'react'
 
 // from files
-import { Accordion, Search, Dropdown, Translate } from './components'
+import {
+	Accordion,
+	Search,
+	Dropdown,
+	Translate,
+	Route,
+	Header,
+} from './components'
 
 const items = [
 	{
@@ -41,16 +48,24 @@ function App() {
 
 	return (
 		<div>
-			{display ? <Search /> : null}
-			{display ? <Accordion items={items} /> : null}
-			{display ? (
+			<Header />
+			<Route path="/">
+				<Accordion items={items} />
+			</Route>
+			<Route path="/list">
+				<Search />
+			</Route>
+			<Route path="/dropdown">
 				<Dropdown
+					label="Select a color"
+					options={options}
 					selected={selected}
 					onSelectedChange={setSelected}
-					options={options}
 				/>
-			) : null}
-			<Translate />
+			</Route>
+			<Route path="/translate">
+				<Translate />
+			</Route>
 		</div>
 	)
 }
